@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 //global
 
-Route::get('/', [HomepageController::class, 'index'])->name('homepage');
-Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
-Route::get('/tips', [ArtikelController::class, 'indextips'])->name('artikel.tips');
-Route::get('/artikel/{slug}', [ArtikelController::class, 'detailartikel'])->name('artikel.show');
+
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -36,3 +33,4 @@ Route::middleware('auth')->group(function () {
 
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/front.php';

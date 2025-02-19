@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+
 
 class ArtikelController extends Controller
 {
@@ -29,5 +31,27 @@ class ArtikelController extends Controller
             ->get();
 
         return view('tipspage', compact('posts'));
+    }
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        $posts = Post::where('title', 'like', "%$query%")
+                    ->orWhere('content', 'like', "%$query%")
+                    ->paginate(10); // Menampilkan 10 hasil per halaman
+
+        return view('post.result', compact('posts', 'query'));
+    }
+    // API untuk Live Search
+    public function liveSearch(Request $request)
+    {
+        $query = $request->get('q');
+
+        $posts = Post::where('title', 'like', "%$query%")
+                    ->orWhere('content', 'like', "%$query%")
+                    ->take(5)
+                    ->get(['id', 'title', 'slug']);
+
+        return response()->json($posts);
     }
 }
