@@ -1,7 +1,8 @@
 # Laravel Blog SportPointApp
 
 ## 📌 Overview
-Laravel Blog Project adalah aplikasi berbasis web yang dibuat menggunakan Laravel. Aplikasi ini memiliki fitur daftar artikel, kategori, dan tampilan yang modern serta responsif.
+Laravel Blog SportPointApp adalah aplikasi berbasis web yang dibuat menggunakan Laravel. Aplikasi ini memiliki fitur daftar artikel, kategori, dan tampilan yang modern serta responsif.
+website ini menampilkan berita seputar olahraga
 
 ## 🛠️ Installation
 ### 1. Clone Repository
